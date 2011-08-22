@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.trustice</groupId>
+	<artifactId>jnireg</artifactId>
+	<version>3.1.3</version>
+	<packaging>jar</packaging>
+
+	<name>Windows Registry API Native Interface</name>
+	<url>http://www.trustice.com/java/jnireg/</url>
+	<description>The com.ice.jni.registry package is a Java native interface for the Windows Registry API. This allows Java program to access, modify, and export Windows Registry resources. </description>
+	<inceptionYear>1997</inceptionYear>
+
+	<organization>
+		<name>ICE Engineering</name>
+		<url>http://www.trustice.com</url>
+	</organization>
+
+	<issueManagement>
+		<system>Bugzilla</system>
+		<url>http://www.ironiacorp.com/Apps/Bugzilla/</url>
+	</issueManagement>
+
+	<scm>
+		<connection>scm:svn:https://www.ironiacorp.com/svn/projects/Finder</connection>
+		<developerConnection>scm:svn:https://www.ironiacorp.com/svn/projects/Finder</developerConnection>
+		<url>http://www.ironiacorp.com/Apps/WebSVN/wsvn/Active%20projects.Finder/trunk</url>
+	</scm>
+
+	<ciManagement>
+		<system>Hudson</system>
+		<url>http://www.ironiacorp.com/Apps/Hudson/job/JNIReg</url>
+		<notifiers>
+			<notifier>
+				<type>mail</type>
+				<sendOnError>true</sendOnError>
+				<sendOnFailure>true</sendOnFailure>
+				<sendOnSuccess>false</sendOnSuccess>
+				<sendOnWarning>true</sendOnWarning>
+				<address>magsilva@icmc.usp.br</address>
+			</notifier>
+		</notifiers>
+	</ciManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>labes-pc-010808</id>
+			<name>labes-pc-010808</name>
+			<url>http://www.ironiacorp.com/Apps/Artifactory/libs-releases-local</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://repo1.maven.org/maven2/</url>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>[4.7,)</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<directory>target</directory>
+
+		<sourceDirectory>src</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
+
+		<outputDirectory>target/classes</outputDirectory>
+		<testOutputDirectory>target/test-classes</testOutputDirectory>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<fork>true</fork>
+					<meminitial>128m</meminitial>
+					<maxmem>512m</maxmem>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,2 @@
+Split project into two as suggested here:
+http://svn.codehaus.org/mojo/trunk/mojo/maven-native/native-maven-plugin/src/it/jni/java-win32/pom.xml
